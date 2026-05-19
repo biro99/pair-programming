@@ -25,7 +25,6 @@ router.post('/', async (req, res) => {
     const { titulo, autor } = req.body;
     await db.query('INSERT INTO livros (titulo, autor) VALUES (?, ?)', [titulo, autor]);
     res.status(201).send('Livro cadastrado com sucesso!');
-
   } catch (erro) {
     console.error(erro);
     res.status(500).send('Erro ao cadastrar livro(s)');

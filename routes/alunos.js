@@ -42,7 +42,7 @@ router.put('/:id', async (req, res) => {
     if (resultado.affectedRows === 0) {
       return res.status(404).send('Aluno não encontrado');
     }
-    res.send('Aluno atualizado com sucesso!');
+    res.send('Aluno updated com sucesso!');
   } catch (erro) {
     console.error(erro);
     res.status(500).send('Erro ao atualizar aluno');

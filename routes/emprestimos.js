@@ -29,15 +29,15 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { livro_id, aluno_id, data_emprestimo, data_prevista, data_devolucao } = req.body;
+    const { livro_id, aluno_id, data_emprestimo, data_prevista, data_devlucao } = req.body;
     const [resultado] = await db.query(
-      'UPDATE emprestimos SET livro_id = ?, aluno_id = ?, data_emprestimo = ?, data_prevista = ?, data_devolucao = ? WHERE id = ?',
-      [livro_id, aluno_id, data_emprestimo, data_prevista, data_devolucao, id]
+      'UPDATE emprestimos SET livro_id = ?, aluno_id = ?, data_emprestimo = ?, data_prevista = ?, data_devlucao = ? WHERE id = ?',
+      [livro_id, aluno_id, data_emprestimo, data_prevista, data_devlucao, id]
     );
     if (resultado.affectedRows === 0) {
       return res.status(404).send('Empréstimo não encontrado');
     }
-    res.send('Empréstimo updated com sucesso!');
+    res.send('Empréstimo atualizado com sucesso!');
   } catch (erro) {
     console.error(erro);
     res.status(500).send('Erro ao atualizar empréstimo');

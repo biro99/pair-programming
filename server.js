@@ -4,12 +4,12 @@ const app = express();
 
 app.use(express.json());
 
-const alunosRouter = require('./routes/alunos');
 const livrosRouter = require('./routes/livros');
+const alunosRouter = require('./routes/alunos');
 const emprestimosRouter = require('./routes/emprestimos');
 
-app.use('/alunos', alunosRouter);
 app.use('/livros', livrosRouter);
+app.use('/alunos', alunosRouter);
 app.use('/emprestimos', emprestimosRouter);
 
 const PORT = 3000;
